@@ -1,4 +1,4 @@
-(model-based optimization and how to combine it with learning)[https://www.youtube.com/watch?v=7enj1FGoYwg&t=195s]
+[model-based optimization and how to combine it with learning](https://www.youtube.com/watch?v=7enj1FGoYwg&t=195s)
 
 # pre
 * minimize trials in rl
