@@ -1,4 +1,4 @@
-(RI Seminar: Dmitry Berenson : What Matters for Deformable Object Manipulation)[https://www.youtube.com/watch?v=7Rc3cxN_cus&t=1021s]
+[RI Seminar: Dmitry Berenson : What Matters for Deformable Object Manipulation](https://www.youtube.com/watch?v=7Rc3cxN_cus&t=1021s)
 
 # pre
 * hardware for manip in unstructured env is already there
