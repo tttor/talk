@@ -4,7 +4,7 @@ hanna_reading_2018: Deep RL
 * Silver, David, et al. "The predictron: End-to-end learning and planning." arXiv preprint arXiv:1612.08810 (2016).
 * Tamar, Aviv, et al. "Value iteration networks." Advances in Neural Information Processing Systems. 2016.
 
-## VIN (best in nips 2017)
+## VIN (best in nips 2016)
 * problem
   * most recent deep RL works [21, 18, 9] employed NN architectures that are very similar to
     the standard networksused in supervised learning tasks,
