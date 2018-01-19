@@ -4,12 +4,7 @@ hanna_reading_2018: Deep RL
 * Silver, David, et al. "The predictron: End-to-end learning and planning." arXiv preprint arXiv:1612.08810 (2016).
 * Tamar, Aviv, et al. "Value iteration networks." Advances in Neural Information Processing Systems. 2016.
 
-## The preditron
-* problem
-* idea
-* result
-
-## VIN
+## VIN (best in nips 2017)
 * problem
   * most recent deep RL works [21, 18, 9] employed NN architectures that are very similar to
     the standard networksused in supervised learning tasks,
@@ -28,12 +23,9 @@ hanna_reading_2018: Deep RL
   * an observation that the classic value-iteration (VI) planning algorithm [1, 2] may be
     represented by a specific type of CNN.
   * the effects of modelling errors in VINs can be mitigated by training the network end-to-end
+  * CNNs can implement a particular form of planning computation similar to the value iteration algorithm,
+    which can then be used as a policy for RL or IL
+
 * result
   * on discrete and continuous path-planning domains,
   * on a natural-language based search task.
-
-## comment
-* predictron: learning an _abstract_ model
-* VIN: learn to plan
-* work on: plan to learn, learn to plan,
-  integrated planning and learning
