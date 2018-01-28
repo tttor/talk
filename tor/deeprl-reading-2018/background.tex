@@ -1,0 +1,82 @@
+\section{Background}
+\frame{\tableofcontents[currentsection, hideothersubsections]}
+
+
+\begin{frame}
+\frametitle{MDP here}
+
+\begin{itemize}
+  \item state space, $S$
+  \item action space, $A = R^N$
+  \item an initial state distribution $p(s_1)$
+  \item transition dynamics
+  \item reward fn
+  \item return as the sum of discounted future reward
+  \item $\gamma \in [0,1]$
+  \item goal: to learn a policy which maximizes the expected return from
+  the start distribution $J = E[R_1]$
+  \item $Q^{\phi}(s_t,a_t) = ...$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Deterministic}
+
+Bellman equation (the recursive relationship):
+\begin{equation}
+Q^{\phi} (s_t,a_t) = \mathbb{E} \Big[ r(s_t,a_t) + \gamma \mathbb{E} [Q^{\phi}(s_{t+1},a_{t+1})] \Big]
+\end{equation}
+
+Having a deterministic target policy, $\mu: S \mapsto A$:
+\begin{equation}
+Q^{\phi} (s_t,a_t) = \mathbb{E} \Big[ r(s_t,a_t) + \gamma \mathbb{E} [Q^{\mu}(s_{t+1},\mu(s_{t+1}))] \Big]
+\end{equation}
+which:
+avoid the inner expectation,
+The expectation depends only on the environment,
+
+Thus: possible to learn $Q^{\mu}$ off-policy,
+using transitions which are generated from a different stochastic behavior policy $\beta$.
+commonly: $\mu(s) = argmax_a Q(s,a)$ as in Q-learning
+\end{frame}
+
+\begin{frame}
+\frametitle{func approx}
+consider function approximators parameterized by $\theta^Q$, which we optimize by minimizing the loss:
+\begin{equation*}
+L(\theta^Q) =\mathbb{E} \Big[ Q^{\phi} (s_t,a_t|\theta^Q) - y_t \Big]
+\end{equation*}
+where $y_t = r(s_t,a_t) + \gamma Q^{\mu}(s_{t+1},\mu(s_{t+1}) | \theta^Q)$.
+
+Typically, ignore the fact that $y_t$ is also dependent on $\theta^Q$.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{More on Background}
+
+\begin{itemize}
+  \item deep Q-learning \cite{Mnih2013}
+  \item deterministic policy gradient \cite{Silver2014}
+  \item actor-critic
+\end{itemize}
+
+deep Q-learning \cite{Mnih2013}
+\begin{itemize}
+  \item innovation:
+  \begin{itemize}
+    \item the network is trained off-policy with samples from a replay buffer to minimize correlations between samples;
+    the use of a replay buffer
+    \item the network is trained with a target Q network to give consistent targets during temporal difference backups.
+    a separate target network for calculating $y_t$
+  \end{itemize}
+  \item able to:
+  \begin{itemize}
+    \item solves problems with high-dimensional observation spaces,
+    \item can only handle discrete and low-dimensional action spaces.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
