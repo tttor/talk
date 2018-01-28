@@ -80,3 +80,26 @@ deep Q-learning \cite{Mnih2013}
 \end{itemize}
 
 \end{frame}
+
+\begin{frame}
+\frametitle{Deterministic policy gradient (DPG) \cite{Silver2014}}
+
+DPG:
+\begin{itemize}
+  \item maintains a parameterized actor function $\mu (s|\theta^{\mu})$ which
+  specifies the current policy by deterministically mapping states to a specific action
+  \item The critic $Q(s, a)$ is learned using the Bellman equation as in Q-learning.
+\end{itemize}
+
+Key:
+\begin{itemize}
+  \item replay buffer: a finite sized cache $R$,
+  \item target network:
+  \item batch normalization: normalizes each dimension across the samples
+  in a minibatch to have unit mean and variance.
+  \item an exploration policy $µ'$ by adding noise sampled from
+  a noise (Ornstein-Uhlenbeck process) process $\mathcal{N}$ to our actor policy
+\end{itemize}
+
+\end{frame}
+
