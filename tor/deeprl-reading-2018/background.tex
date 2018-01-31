@@ -1,10 +1,8 @@
 \section{Background}
 \frame{\tableofcontents[currentsection, hideothersubsections]}
 
-
 \begin{frame}
 \frametitle{MDP here}
-
 \begin{itemize}
   \item state space, $S$
   \item action space, $A = R^N$
@@ -17,12 +15,10 @@
   the start distribution $J = E[R_1]$
   \item $Q^{\phi}(s_t,a_t) = ...$
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}
 \frametitle{Deterministic}
-
 Bellman equation (the recursive relationship):
 \begin{equation}
 Q^{\phi} (s_t,a_t) = \mathbb{E} \Big[ r(s_t,a_t) + \gamma \mathbb{E} [Q^{\phi}(s_{t+1},a_{t+1})] \Big]
@@ -33,8 +29,8 @@ Having a deterministic target policy, $\mu: S \mapsto A$:
 Q^{\phi} (s_t,a_t) = \mathbb{E} \Big[ r(s_t,a_t) + \gamma \mathbb{E} [Q^{\mu}(s_{t+1},\mu(s_{t+1}))] \Big]
 \end{equation}
 which:
-avoid the inner expectation,
-The expectation depends only on the environment,
+avoid the inner expectation, i.e.
+the expectation depends only on the environment,
 
 Thus: possible to learn $Q^{\mu}$ off-policy,
 using transitions which are generated from a different stochastic behavior policy $\beta$.
@@ -55,14 +51,7 @@ Typically, ignore the fact that $y_t$ is also dependent on $\theta^Q$.
 
 
 \begin{frame}
-\frametitle{More on Background}
-
-\begin{itemize}
-  \item deep Q-learning \cite{Mnih2013}
-  \item deterministic policy gradient \cite{Silver2014}
-  \item actor-critic
-\end{itemize}
-
+\frametitle{Background: Deep Q-network}
 deep Q-learning \cite{Mnih2013}
 \begin{itemize}
   \item innovation:
@@ -82,7 +71,7 @@ deep Q-learning \cite{Mnih2013}
 \end{frame}
 
 \begin{frame}
-\frametitle{Deterministic policy gradient (DPG) \cite{Silver2014}}
+\frametitle{Background: Deterministic policy gradient (DPG) \cite{Silver2014}}
 
 DPG:
 \begin{itemize}
@@ -102,4 +91,12 @@ Key:
 \end{itemize}
 
 \end{frame}
+
+\begin{frame}
+\frametitle{Background: Actor-critic \cite{Sutton1998}}
+The Actor-Critic Algorithm is essentially a hybrid method to combine the policy gradient method and the value function method together.
+The policy function is known as the actor, while the value function is referred to as the critic.
+Essentially, the actor produces the action aa given the current state of the environment ss, while the critic produces a signal to criticizes the actions made by the actor.
+\end{frame}
+
 
