@@ -2,46 +2,57 @@
 \frame{\tableofcontents[currentsection, hideothersubsections]}
 
 \begin{frame}
-\frametitle{MDP here}
+\frametitle{Background: MDP}
+\textbf{The environment}, $E$: \\
+a Markov decision process with a state space $S$, action space $A = \mathbb{R}^N$,
+an initial state distribution $p(s_1)$, transition dynamics $p(s_{t+1}|s_t, a_t)$, and
+reward function $r(s_t, a_t)$.
+\vspace{2.5mm}
+
+\textbf{At each discrete timestep} $t$, \\
+the agent receives an observation $x_t = s_t$,
+takes an action $a_t$ and receives a scalar reward $r_t$.
+\vspace{2.5mm}
+
+\textbf{The return from a state}: \\
+$R_t= \sum_{i=t}^T  \gamma^{(i-t)} r(s_i, a_i)$ with a discounting factor $\gamma \in [0, 1]$.
+\vspace{2.5mm}
+
+\textbf{Goal}: \\
+to learn a policy, $\pi: S \mapsto P(A)$, which
+maximizes $J = \mathbb{E}_{r_i,s_i \sim E,a_i \sim \pi} [R_1]$.
+\vspace{2.5mm}
+
+\textbf{Action-value function}:\\
+$Q^{\pi}(s_t,a_t) = \mathbb{E}_{r_{i \ge t},s_{i>t} \sim E,a_{i>t} \sim \pi} [R_t|s_t,a_t]$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Background: MDP with deterministic policy}
+Bellman equation (the recursive relationship):
+\begin{equation}
+Q^{\pi} (s_t,a_t) = \mathbb{E}_{r_{t},s_{t+1} \sim E} \Big[ r(s_t,a_t) + \gamma \mathbb{E}_{a_{t+1} \sim \pi} [Q^{\phi}(s_{t+1},a_{t+1})] \Big]
+\end{equation}
+
+If the target policy is deterministic, $\mu: S \mapsto A$, then:
+\begin{equation}
+Q^{\mu} (s_t,a_t) = \mathbb{E}_{r_{t},s_{t+1} \sim E} \Big[ r(s_t,a_t) + \gamma Q^{\mu}(s_{t+1},\mu(s_{t+1})) \Big]
+\end{equation}
+
+Thus:
 \begin{itemize}
-  \item state space, $S$
-  \item action space, $A = R^N$
-  \item an initial state distribution $p(s_1)$
-  \item transition dynamics
-  \item reward fn
-  \item return as the sum of discounted future reward
-  \item $\gamma \in [0,1]$
-  \item goal: to learn a policy which maximizes the expected return from
-  the start distribution $J = E[R_1]$
-  \item $Q^{\phi}(s_t,a_t) = ...$
+\item the expectation depends only on the environment $E$,
+\item possible to learn $Q^{\mu}$ off-policy, using transitions which
+are generated from a different stochastic behavior policy $\beta$.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Deterministic}
-Bellman equation (the recursive relationship):
-\begin{equation}
-Q^{\phi} (s_t,a_t) = \mathbb{E} \Big[ r(s_t,a_t) + \gamma \mathbb{E} [Q^{\phi}(s_{t+1},a_{t+1})] \Big]
-\end{equation}
-
-Having a deterministic target policy, $\mu: S \mapsto A$:
-\begin{equation}
-Q^{\phi} (s_t,a_t) = \mathbb{E} \Big[ r(s_t,a_t) + \gamma \mathbb{E} [Q^{\mu}(s_{t+1},\mu(s_{t+1}))] \Big]
-\end{equation}
-which:
-avoid the inner expectation, i.e.
-the expectation depends only on the environment,
-
-Thus: possible to learn $Q^{\mu}$ off-policy,
-using transitions which are generated from a different stochastic behavior policy $\beta$.
-commonly: $\mu(s) = argmax_a Q(s,a)$ as in Q-learning
-\end{frame}
-
-\begin{frame}
-\frametitle{func approx}
-consider function approximators parameterized by $\theta^Q$, which we optimize by minimizing the loss:
+\frametitle{Background: Fn approximator}
+Consider fn approximators parameterized by $\theta^Q$, \\
+which we optimize by minimizing the loss:
 \begin{equation*}
-L(\theta^Q) =\mathbb{E} \Big[ Q^{\phi} (s_t,a_t|\theta^Q) - y_t \Big]
+L(\theta^Q) =\mathbb{E}_{s_t \sim \rho^{\beta}, a \sim \beta, r_t \sim E} \Big[ \Big( Q^{\phi} (s_t,a_t|\theta^Q) - y_t \Big)^2 \Big]
 \end{equation*}
 where $y_t = r(s_t,a_t) + \gamma Q^{\mu}(s_{t+1},\mu(s_{t+1}) | \theta^Q)$.
 
@@ -51,8 +62,8 @@ Typically, ignore the fact that $y_t$ is also dependent on $\theta^Q$.
 
 
 \begin{frame}
-\frametitle{Background: Deep Q-network}
-deep Q-learning \cite{Mnih2013}
+\frametitle{Background: Deep Q-network \cite{Mnih2013}}
+deep Q-network:
 \begin{itemize}
   \item innovation:
   \begin{itemize}
@@ -71,7 +82,7 @@ deep Q-learning \cite{Mnih2013}
 \end{frame}
 
 \begin{frame}
-\frametitle{Background: Deterministic policy gradient (DPG) \cite{Silver2014}}
+\frametitle{Background: Deterministic PG (DPG) \cite{Silver2014}}
 
 DPG:
 \begin{itemize}
