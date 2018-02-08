@@ -55,28 +55,50 @@ since the network $Q(s, a|\theta^Q)$ being updated is also used in
 calculating the target value, $y$, (eq.X)
 \end{itemize}
 
-
+What:
 \begin{itemize}
 \item create a copy of the actor and critic networks, $Q'(s, a|\theta^{Q'})$ and $µ'(s|\theta^{\mu'})$
 \item use those for calculating the target values
 \item weights of these target networks are then updated by having them slowly track the learned networks:
-    % $θ' \leftarrow \tau \theta + (1 - \tau) \thata'$ with $\tau \ll 1$
+    $θ' \leftarrow \tau \theta + (1 - \tau) \theta'$ with $\tau \ll 1$
+    [warn: may slow learning, since the target network delays the propagation of value estimations, but
+    in practice, this was greatly outweighed by the stability of learning].
 \end{itemize}
 
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Method: Feature scaling}
-  % \item batch normalization: normalizes each dimension across the samples
-  % in a minibatch to have unit mean and variance.
+\frametitle{Method: Feature scaling: batch normalization}
+Why:
+\begin{itemize}
+\item different components of the observation may have different physical units (for example, positions versus velocities)
+\item their ranges may vary across environments
+\item make it difficult
+  a) for the network to learn effectively
+  b) to find hyper-parameters which generalise across environments with different scales of state values.
+\item to minimize covariance shift during training, by ensuring that each layer receives whitened input
+\end{itemize}
+
+What:
+\begin{itemize}
+\item normalizes each dimension across the samples in a minibatch to have unit mean and variance.
+\item maintains a running average of the mean and variance to use for normalization during testing
+(during xploration or evaluation)
+\end{itemize}
 
 \end{frame}
 
 \begin{frame}
 \frametitle{Method: Exploration}
-% \item an exploration policy $µ'$ by adding noise sampled from
-%   a noise (Ornstein-Uhlenbeck process) process $\mathcal{N}$ to our actor policy
+Why:\\
+Exploration-exploitation dillema
+
+What:\\
+Construct an exploration policy $\mu^x$ by adding noise sampled from
+a noise process $\mathcal{N}$ to our actor policy:
+$\mu^x = \mu(s_t | \theta^{\mu}_t) + \mathcal{N}$.
+
 \end{frame}
 
 \begin{frame}

@@ -2,28 +2,47 @@
 \frame{\tableofcontents[currentsection, hideothersubsections]}
 
 \begin{frame}
-\frametitle{Experiment Setup}
+\frametitle{Experiment Setup: Task}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{fig_1}
+\end{figure}
 
 \begin{itemize}
   \item 20 simulated physics task,
-  including classic problems such as cartpole swing-up, dexterous manipulation, legged locomotion and car driving
-  \item non-linear fn approx
-  \item a baseline computed by a planner (Tassa et al., 2012) that
-  has full access to the underlying simulated dynamics and its derivatives (see supplementary information).
-  \item ran experiments using both a low-dimensional state description (such as joint angles and positions) and high-dimensional renderings of the environment
+  \begin{itemize}
+    \item gripperRandom:
+    Agent must use an arm with gripper appendage to grasp an object and manuver the object, which
+    are initialized in random locations
+    % \item reacher3daRandomTarget:
+    % Agent is required to move a 7-DOF human-like arm from random starting locations to random target positions.
+    \item reacherObstacle:
+    Agent is required to move a 5-DOF arm around an obstacle to a randomized target position.
+  \end{itemize}
+  \item using both a low-dimensional state description (such as joint angles and positions) and high-dimensional renderings of the environment
 \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Experiment Setup: Task}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.25]{task_dim}
+\end{figure}
 
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Assumptions, Baselin}
+\frametitle{Experiment Setup: Baseline, Assumptions}
 
 Assumption:
 \begin{itemize}
   \item env is MDP, the environment is fully-observed
 \end{itemize}
-
 
 Baseline:
 \begin{itemize}
@@ -31,14 +50,9 @@ Baseline:
   a uniform distribution over the valid action space
   \item iLQG, a planning based solver with full access to
   the underlying physical model and its derivatives.
+  \item normalize scores so that the naive policy has
+  a mean score of 0 and iLQG has a mean score of 1.
 \end{itemize}
 
 \end{frame}
 
-\begin{frame}
-\frametitle{Tasks}
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.3]{fig_1}
-\end{figure}
-\end{frame}
