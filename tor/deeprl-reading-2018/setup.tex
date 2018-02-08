@@ -10,7 +10,7 @@
 \end{figure}
 
 \begin{itemize}
-  \item 20 simulated physics task,
+  \item 20 simulated physics task, including:
   \begin{itemize}
     \item gripperRandom:
     Agent must use an arm with gripper appendage to grasp an object and manuver the object, which
@@ -46,12 +46,18 @@ Assumption:
 
 Baseline:
 \begin{itemize}
-  \item the mean return from a naive policy which samples actions from
-  a uniform distribution over the valid action space
-  \item iLQG, a planning based solver with full access to
-  the underlying physical model and its derivatives.
-  \item normalize scores so that the naive policy has
-  a mean score of 0 and iLQG has a mean score of 1.
+  \item types:
+  \begin{itemize}
+    \item naive policy: the mean return from a naive policy which samples actions from
+    a uniform distribution over the valid action space;
+    \item iLQG: a planning based solver with full access to
+    the underlying physical model and its derivatives.
+  \end{itemize}
+  \item normalize scores so that
+    \begin{itemize}
+    \item naive policy: has a mean score of 0
+    \item iLQG: has a mean score of 1
+  \end{itemize}
 \end{itemize}
 
 \end{frame}

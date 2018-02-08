@@ -2,6 +2,14 @@
 \frame{\tableofcontents[currentsection, hideothersubsections]}
 
 \begin{frame}
+\frametitle{Background: Actor-critic approach}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{actorcritic_arch}
+\end{figure}
+\end{frame}
+
+\begin{frame}
 \frametitle{Background: MDP}
 \textbf{The environment}, $E$: \\
 a Markov decision process with a state space $S$, action space $A = \mathbb{R}^N$,
@@ -51,15 +59,15 @@ are generated from a different stochastic behavior policy $\beta$.
 \frametitle{Background: Fn approximator}
 Consider fn approximators parameterized by $\theta^Q$, \\
 which we optimize by minimizing the loss:
-\begin{equation*}
+\begin{equation} \label{equ:qloss}
 L(\theta^Q) =\mathbb{E}_{s_t \sim \rho^{\beta}, a \sim \beta, r_t \sim E} \Big[ \Big( Q^{\phi} (s_t,a_t|\theta^Q) - y_t \Big)^2 \Big]
-\end{equation*}
-where
-$y_t = r(s_t,a_t) + \gamma Q^{\mu}(s_{t+1},\mu(s_{t+1}) | \theta^Q)$, and
+\end{equation}
+where:\\
+$y_t = r(s_t,a_t) + \gamma Q^{\mu}(s_{t+1},\mu(s_{t+1}) | \theta^Q)$, and \\
 $\rho^{\beta}$: the discounted state visitation distribution for a policy $\beta$.
+\vspace{5mm}
 
 Typically, ignore the fact that $y_t$ is also dependent on $\theta^Q$.\\
-
 \end{frame}
 
 % \begin{frame}

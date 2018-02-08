@@ -12,7 +12,6 @@ DPG: Deterministic Policy Gradient, an actor-critic approach:
   learned using the Bellman equation as in Q-learning.
 \end{itemize}
 
-
 Update $\theta^{\mu}$ by applying the chain rule to the expected return from
 the start distribution, $J$, with respect to the actor parameters, $\theta^{\mu}$:
 \begin{equation} \label{equ:policy_grad}
@@ -24,7 +23,6 @@ the start distribution, $J$, with respect to the actor parameters, $\theta^{\mu}
 
 Equ.~\ref{equ:policy_grad} is the policy gradient (the gradient of the policy's performance),
 in practice the discount in $\rho^{\beta}$ is ignored.
-
 \end{frame}
 
 \begin{frame}
@@ -36,6 +34,7 @@ the samples from exploring sequentially in an environment are not iid
 \item to make efficient use of hardware optimizations:\\
 to learn in minibatches rather than (fully) online
 \end{itemize}
+\vspace{5mm}
 
 What:
 \begin{itemize}
@@ -50,19 +49,20 @@ What:
 \frametitle{Method: Fix target network}
 Why:
 \begin{itemize}
-\item Q-learning (eq.X) with NN is unstable, \\
+\item Q-learning (eq.\ref{equ:qloss}) with NN is unstable, \\
 since the network $Q(s, a|\theta^Q)$ being updated is also used in
-calculating the target value, $y$, (eq.X)
+calculating the target value, $y$
 \end{itemize}
 
 What:
 \begin{itemize}
-\item create a copy of the actor and critic networks, $Q'(s, a|\theta^{Q'})$ and $µ'(s|\theta^{\mu'})$
+\item create a copy of the actor and critic networks, i.e. \\
+  $Q'(s, a|\theta^{Q'})$ and $µ'(s|\theta^{\mu'})$
 \item use those for calculating the target values
-\item weights of these target networks are then updated by having them slowly track the learned networks:
-    $θ' \leftarrow \tau \theta + (1 - \tau) \theta'$ with $\tau \ll 1$
-    [warn: may slow learning, since the target network delays the propagation of value estimations, but
-    in practice, this was greatly outweighed by the stability of learning].
+\item target networks update: \\
+    $\theta' \leftarrow \tau \theta + (1 - \tau) \theta'$ with $\tau \ll 1$\\
+    (warn: may slow learning, since the target network delays the propagation of value estimations, but
+    in practice, this was greatly outweighed by the stability of learning)
 \end{itemize}
 
 \end{frame}
@@ -74,11 +74,12 @@ Why:
 \begin{itemize}
 \item different components of the observation may have different physical units (for example, positions versus velocities)
 \item their ranges may vary across environments
-\item make it difficult
-  a) for the network to learn effectively
-  b) to find hyper-parameters which generalise across environments with different scales of state values.
-\item to minimize covariance shift during training, by ensuring that each layer receives whitened input
+% \item make it difficult
+%   a) for the network to learn effectively
+%   b) to find hyper-parameters which generalise across environments with different scales of state values.
+% \item to minimize covariance shift during training, by ensuring that each layer receives whitened input
 \end{itemize}
+\vspace{3mm}
 
 What:
 \begin{itemize}
@@ -93,6 +94,7 @@ What:
 \frametitle{Method: Exploration}
 Why:\\
 Exploration-exploitation dillema
+\vspace{5mm}
 
 What:\\
 Construct an exploration policy $\mu^x$ by adding noise sampled from
@@ -102,7 +104,7 @@ $\mu^x = \mu(s_t | \theta^{\mu}_t) + \mathcal{N}$.
 \end{frame}
 
 \begin{frame}
-\frametitle{DDDP Algo}
+\frametitle{Method: Deep DPG Algo}
 \begin{figure}
     \centering
     \includegraphics[scale=0.35]{ddpg_algo}
