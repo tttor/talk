@@ -62,23 +62,12 @@ Typically, ignore the fact that $y_t$ is also dependent on $\theta^Q$.\\
 
 \end{frame}
 
-
-\begin{frame}
-\frametitle{Background: Deep Q-network \cite{Mnih2013}}
-
-Key:
-\begin{itemize}
-  \item replay buffer,
-  contain $(s_t, a_t, r_t, s_{t+1})$ sampled from $E$ using an exploration policy
-  \item target network:
-  \item batch normalization: normalizes each dimension across the samples
-  in a minibatch to have unit mean and variance.
-  \item an exploration policy $µ'$ by adding noise sampled from
-  a noise (Ornstein-Uhlenbeck process) process $\mathcal{N}$ to our actor policy
-\end{itemize}
-
-% At each timestep the actor and critic are updated by sampling a minibatch uniformly from the buffer.
-% Because DDPG is an off-policy algorithm, the replay buffer can be large, allowing the algorithm to benefit from learning across a set of uncorrelated transitions.
+% \begin{frame}
+% \frametitle{Background: Actor-critic \cite{Sutton1998}}
+% The Actor-Critic Algorithm is essentially a hybrid method to combine the policy gradient method and the value function method together.
+% The policy function is known as the actor, while the value function is referred to as the critic.
+% Essentially, the actor produces the action aa given the current state of the environment ss, while the critic produces a signal to criticizes the actions made by the actor.
+% \end{frame}
 
 % deep Q-network:
 % \begin{itemize}
@@ -95,40 +84,3 @@ Key:
 %     \item can only handle discrete and low-dimensional action spaces.
 %   \end{itemize}
 % \end{itemize}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Background: DPG \cite{Silver2014}}
-
-DPG: Deterministic Policy Gradient, an actor-critic approach:
-\begin{itemize}
-  \item actor: $\mu (s|\theta^{\mu})$,
-  specifies the current policy by deterministically mapping states to a specific action
-  \item critic: $Q(s, a)$,
-  learned using the Bellman equation as in Q-learning.
-\end{itemize}
-
-
-Update $\theta^{\mu}$ by applying the chain rule to the expected return from
-the start distribution, $J$, with respect to the actor parameters, $\theta^{\mu}$:
-\begin{equation} \label{equ:policy_grad}
-\begin{split}
-\nabla_{\theta^{\mu}} J &  \approx \mathbb{E}_{s_t \sim \rho^{\beta}} \Big[ \nabla_{\theta^{\mu}} Q(s,a|\theta^Q) |_{s = s_t, a = \mu(s_t|\theta^{\mu})} \Big] \\
-  & = \mathbb{E}_{s_t \sim \rho^{\beta}} \Big[ \nabla_{\theta^{\mu}} Q(s,a|\theta^Q) |_{s = s_t, a = \mu(s_t)} \nabla_{\theta^{\mu}} \mu(s|\theta^{\mu})|_{s = s_t} \Big]
-\end{split}
-\end{equation}
-
-Equ.~\ref{equ:policy_grad} is the policy gradient (the gradient of the policy's performance),
-in practice the discount in $\rho^{\beta}$ is ignored.
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Background: Actor-critic \cite{Sutton1998}}
-The Actor-Critic Algorithm is essentially a hybrid method to combine the policy gradient method and the value function method together.
-The policy function is known as the actor, while the value function is referred to as the critic.
-Essentially, the actor produces the action aa given the current state of the environment ss, while the critic produces a signal to criticizes the actions made by the actor.
-\end{frame}
-
-

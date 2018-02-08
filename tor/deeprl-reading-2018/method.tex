@@ -2,17 +2,81 @@
 \frame{\tableofcontents[currentsection, hideothersubsections]}
 
 \begin{frame}
-\frametitle{Methods: Deep DPG}
+\frametitle{Method: DPG \cite{Silver2014}}
 
-Deep DPG:
-DPG that uses neural network function approximators to
-learn in large state and action spaces online.
+DPG: Deterministic Policy Gradient, an actor-critic approach:
 \begin{itemize}
-  \item a model-free, off-policy actor-critic algorithm using deep function approximators
-  \item can learn competitive policies for all of our tasks using low-dimensional observations
-  (e.g. cartesian coordinates or joint angles) using the same hyper-parameters and network structure.
-  \item In many cases, we are also able to learn good policies directly from pixels, again keeping hyperparameters and network structure constant
+  \item actor: $\mu (s|\theta^{\mu})$,
+  specifies the current policy by deterministically mapping states to a specific action
+  \item critic: $Q(s, a)$,
+  learned using the Bellman equation as in Q-learning.
 \end{itemize}
+
+
+Update $\theta^{\mu}$ by applying the chain rule to the expected return from
+the start distribution, $J$, with respect to the actor parameters, $\theta^{\mu}$:
+\begin{equation} \label{equ:policy_grad}
+\begin{split}
+\nabla_{\theta^{\mu}} J &  \approx \mathbb{E}_{s_t \sim \rho^{\beta}} \Big[ \nabla_{\theta^{\mu}} Q(s,a|\theta^Q) |_{s = s_t, a = \mu(s_t|\theta^{\mu})} \Big] \\
+  & = \mathbb{E}_{s_t \sim \rho^{\beta}} \Big[ \nabla_{\theta^{\mu}} Q(s,a|\theta^Q) |_{s = s_t, a = \mu(s_t)} \nabla_{\theta^{\mu}} \mu(s|\theta^{\mu})|_{s = s_t} \Big]
+\end{split}
+\end{equation}
+
+Equ.~\ref{equ:policy_grad} is the policy gradient (the gradient of the policy's performance),
+in practice the discount in $\rho^{\beta}$ is ignored.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Methods: Replay-buffer, as in DQN~\cite{Mnih2013}}
+Why:
+\begin{itemize}
+\item NN assumes iid samples;\\
+the samples from exploring sequentially in an environment are not iid
+\item to make efficient use of hardware optimizations:\\
+to learn in minibatches rather than (fully) online
+\end{itemize}
+
+What:
+\begin{itemize}
+  \item replay buffer contains $(s_t, a_t, r_t, s_{t+1})$ sampled from $E$ using an exploration policy
+  \item At each timestep the actor and critic are updated by sampling a minibatch uniformly from the buffer
+% Because DDPG is an off-policy algorithm, the replay buffer can be large, allowing the algorithm to benefit from learning across a set of uncorrelated transitions.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Method: Fix target network}
+Why:
+\begin{itemize}
+\item Q-learning (eq.X) with NN is unstable, \\
+since the network $Q(s, a|\theta^Q)$ being updated is also used in
+calculating the target value, $y$, (eq.X)
+\end{itemize}
+
+
+\begin{itemize}
+\item create a copy of the actor and critic networks, $Q'(s, a|\theta^{Q'})$ and $µ'(s|\theta^{\mu'})$
+\item use those for calculating the target values
+\item weights of these target networks are then updated by having them slowly track the learned networks:
+    % $θ' \leftarrow \tau \theta + (1 - \tau) \thata'$ with $\tau \ll 1$
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Method: Feature scaling}
+  % \item batch normalization: normalizes each dimension across the samples
+  % in a minibatch to have unit mean and variance.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Method: Exploration}
+% \item an exploration policy $µ'$ by adding noise sampled from
+%   a noise (Ornstein-Uhlenbeck process) process $\mathcal{N}$ to our actor policy
 \end{frame}
 
 \begin{frame}
