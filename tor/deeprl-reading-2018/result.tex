@@ -2,7 +2,7 @@
 \frame{\tableofcontents[currentsection, hideothersubsections]}
 
 \begin{frame}
-\frametitle{Results: Performance after training}
+\frametitle{Results: Performance (across 5 runs)}
 \begin{figure}
     \centering
     \includegraphics[scale=0.3]{perf_table}
@@ -18,20 +18,22 @@
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.35]{fig_3}
+    \includegraphics[scale=0.3]{fig_3}
 \end{figure}
 
-See: video!
 \end{frame}
 
-% \begin{frame}
-% \frametitle{Result List}
+\begin{frame}
+\frametitle{Results: In words...}
 
-% \begin{itemize}
-%   \item able to find policies whose performance is competitive with those found by a planning algorithm with full access to the dynamics of the domain and its derivatives.
-%   \item for many of the tasks the algorithm can learn policies “end-to-end”: directly from raw pixel inputs.
-% \end{itemize}
+\begin{itemize}
+  \item able to find policies whose performance is \emph{competitive} with
+  those found by a planning algorithm with full access to the dynamics of the domain and its derivatives.
+  \item for many of the tasks the algorithm can learn policies end-to-end: directly from raw pixel inputs.
+  \item in some simpler tasks, learning policies from pixels is just as fast as learning using the low-dimensional state descriptor.\\
+  (may also be that the convolutional layers provide an easily separable representation of state space,
+  which is straightforward for the higher layers to learn on quickly)
+\end{itemize}
 
-% Surprisingly, in some simpler tasks, learning policies from pixels is just as fast as learning using the low-dimensional state descriptor. This may be due to the action repeats making the problem simpler. It may also be that the convolutional layers provide an easily separable representation of state space, which is straightforward for the higher layers to learn on quickly.
-
-% \end{frame}
+See: supplemental video!
+\end{frame}

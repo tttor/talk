@@ -2,7 +2,7 @@
 \frame{\tableofcontents[currentsection, hideothersubsections]}
 
 \begin{frame}
-\frametitle{Experiment Setup: Task}
+\frametitle{Experiment Setup: Tasks}
 
 \begin{figure}
     \centering
@@ -20,13 +20,17 @@
     \item reacherObstacle:
     Agent is required to move a 5-DOF arm around an obstacle to a randomized target position.
   \end{itemize}
-  \item using both a low-dimensional state description (such as joint angles and positions) and high-dimensional renderings of the environment
+  \item features, both:
+    \begin{itemize}
+    \item a low-dimensional state description (such as joint angles and positions)
+    \item high-dimensional renderings of the environment
+  \end{itemize}
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}
-\frametitle{Experiment Setup: Task}
+\frametitle{Experiment Setup: Tasks}
 
 \begin{figure}
     \centering
@@ -46,17 +50,17 @@ Assumption:
 
 Baseline:
 \begin{itemize}
-  \item types:
+  \item 2 types:
   \begin{itemize}
-    \item naive policy: the mean return from a naive policy which samples actions from
+    \item \textbf{naive policy:} the mean return from a naive policy which samples actions from
     a uniform distribution over the valid action space;
-    \item iLQG: a planning based solver with full access to
+    \item \textbf{iLQG~\cite{Todorov2005}}: a planning based solver with full access to
     the underlying physical model and its derivatives.
   \end{itemize}
-  \item normalize scores so that
+  \item normalize baseline scores so that
     \begin{itemize}
-    \item naive policy: has a mean score of 0
-    \item iLQG: has a mean score of 1
+    \item \textbf{naive policy}: has a mean score of 0
+    \item \textbf{iLQG}: has a mean score of 1
   \end{itemize}
 \end{itemize}
 

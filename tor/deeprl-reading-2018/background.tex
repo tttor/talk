@@ -10,7 +10,7 @@ reward function $r(s_t, a_t)$.
 \vspace{2.5mm}
 
 \textbf{At each discrete timestep} $t$, \\
-the agent receives an observation $x_t = s_t$,
+the agent receives an observation $x_t = s_t$ (fully observable),
 takes an action $a_t$ and receives a scalar reward $r_t$.
 \vspace{2.5mm}
 
@@ -66,7 +66,7 @@ Typically, ignore the fact that $y_t$ is also dependent on $\theta^Q$.\\
 \frametitle{Background: Actor-critic approach}
 \begin{figure}
     \centering
-    \includegraphics[scale=0.3]{actorcritic_arch}
+    \includegraphics[scale=0.35]{actorcritic_arch}
 \end{figure}
 \end{frame}
 

@@ -2,14 +2,20 @@
 \frame{\tableofcontents[currentsection, hideothersubsections]}
 
 \begin{frame}
-\frametitle{Methods}
-DDPG (=DPG+DQN)~\cite{Lillicrap2015} components:
+\frametitle{Methods: Deep DPG}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.25]{ddpg_algo}
+\end{figure}
+
+{\footnotesize
+Deep DPG (=DPG+DQN) components:
 \begin{itemize}
   \item Deterministic Policy-Gradient (DPG) \cite{Silver2014}
-  \item Deep Q-Network (DQN= QLearning + deepLearning) \cite{Mnih2013}
+  \item Deep Q-Network (DQN= QLearning + deepLearning) {\scriptsize\cite{Mnih2013}}
   \item Actor-Critic Methods \cite{Sutton1998}
 \end{itemize}
-
+}
 \end{frame}
 
 \begin{frame}
@@ -22,6 +28,7 @@ DPG: Deterministic Policy Gradient, an actor-critic approach:
   \item critic: $Q(s, a)$,
   learned using the Bellman equation as in Q-learning.
 \end{itemize}
+\vspace{3mm}
 
 Update $\theta^{\mu}$ by applying the chain rule to the expected return from
 the start distribution, $J$, with respect to the actor parameters, $\theta^{\mu}$:
@@ -40,16 +47,16 @@ in practice the discount in $\rho^{\beta}$ is ignored.
 \frametitle{Methods: Replay-buffer, as in DQN~\cite{Mnih2013}}
 Why:
 \begin{itemize}
-\item NN assumes iid samples;\\
-the samples from exploring sequentially in an environment are not iid
+\item NeuralNets assume iid samples;\\
+the samples from exploring sequentially in an environment are \textbf{not} iid
 \item to make efficient use of hardware optimizations:\\
 to learn in minibatches rather than (fully) online
 \end{itemize}
 \vspace{5mm}
 
-What:
+How:
 \begin{itemize}
-  \item replay buffer contains $(s_t, a_t, r_t, s_{t+1})$ sampled from $E$ using an exploration policy
+  \item replay buffer, $R$, contains $(s_t, a_t, r_t, s_{t+1})$ sampled from $E$ using an exploration policy
   \item At each timestep the actor and critic are updated by sampling a minibatch uniformly from the buffer
 % Because DDPG is an off-policy algorithm, the replay buffer can be large, allowing the algorithm to benefit from learning across a set of uncorrelated transitions.
 \end{itemize}
@@ -57,19 +64,20 @@ What:
 \end{frame}
 
 \begin{frame}
-\frametitle{Method: Fix target network}
+\frametitle{Method: Fix target network, as in DQN~\cite{Mnih2013}}
 Why:
 \begin{itemize}
-\item Q-learning (eq.\ref{equ:qloss}) with NN is unstable, \\
+\item Q-learning (eq.\ref{equ:qloss}) with NeuralNets is unstable, \\
 since the network $Q(s, a|\theta^Q)$ being updated is also used in
 calculating the target value, $y$
 \end{itemize}
+\vspace{5mm}
 
-What:
+How:
 \begin{itemize}
-\item create a copy of the actor and critic networks, i.e. \\
-  $Q'(s, a|\theta^{Q'})$ and $µ'(s|\theta^{\mu'})$
-\item use those for calculating the target values
+\item {\footnotesize create a copy of the actor and critic networks, i.e.}
+  $Q'(s, a|\theta^{Q'})$ and $\mu'(s|\theta^{\mu'})$
+\item use $Q'(s, a|\theta^{Q'})$ and $\mu'(s|\theta^{\mu'})$ for calculating the target values
 \item target networks update: \\
     $\theta' \leftarrow \tau \theta + (1 - \tau) \theta'$ with $\tau \ll 1$\\
     (warn: may slow learning, since the target network delays the propagation of value estimations, but
@@ -80,7 +88,7 @@ What:
 
 
 \begin{frame}
-\frametitle{Method: Feature scaling: batch normalization}
+\frametitle{Methods: Feature scaling: batch normalization}
 Why:
 \begin{itemize}
 \item different components of the observation may have different physical units (for example, positions versus velocities)
@@ -90,9 +98,9 @@ Why:
 %   b) to find hyper-parameters which generalise across environments with different scales of state values.
 % \item to minimize covariance shift during training, by ensuring that each layer receives whitened input
 \end{itemize}
-\vspace{3mm}
+\vspace{5mm}
 
-What:
+How:
 \begin{itemize}
 \item normalizes each dimension across the samples in a minibatch to have unit mean and variance.
 \item maintains a running average of the mean and variance to use for normalization during testing
@@ -107,11 +115,14 @@ Why:\\
 Exploration-exploitation dillema
 \vspace{5mm}
 
-What:\\
-Construct an exploration policy $\mu^x$ by adding noise sampled from
+How:\\
+\begin{itemize}
+\item Construct an exploration policy $\mu^{xplor}$ by adding noise sampled from
 a noise process $\mathcal{N}$ to our actor policy:
-$\mu^{xplor} = \mu(s_t | \theta^{\mu}_t) + \mathcal{N}$.
-
+$\mu^{xplor} = \mu(s_t | \theta^{\mu}_t) + \mathcal{N}$.\\
+\item Here, $\mathcal{N}$ is from Ornstein-Uhlenbeck process,\\
+to generate temporally correlated exploration for exploration efficiency in physical control problems with inertia.
+\end{itemize}
 \end{frame}
 
 \begin{frame}

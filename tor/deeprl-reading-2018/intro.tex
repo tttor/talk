@@ -3,26 +3,31 @@
 
 \begin{frame}
 \frametitle{Introduction}
-On:\\
+\textbf{On:}\\
 Continuous control with deep reinforcement learning~\cite{Lillicrap2015}
-\vspace{3mm}
+\vspace{2mm}
 
-Problems:
+\textbf{Problems:}
 \begin{itemize}
   \item continuous action space
   \item raw pixels for observations
 \end{itemize}
-\vspace{3mm}
+\vspace{2mm}
 
-Deep DPG (=DPG+DQN) components:
+\textbf{Deep DPG (=DPG+DQN) components:}
 \begin{itemize}
   \item Deterministic Policy-Gradient (DPG) \cite{Silver2014}
   \item Deep Q-Network (DQN) \cite{Mnih2013}
   \item Actor-Critic Methods \cite{Sutton1998}
 \end{itemize}
-\vspace{5mm}
+\vspace{2mm}
 
-See: teasing video!
+\textbf{Note:}
+Deep DPG is gradient-based, \\
+c.f. gradient-free, e.g. GPS-ABT~\cite{Seiler2015}
+\vspace{2mm}
+
+See: app video!
 \end{frame}
 
 \begin{frame}
@@ -35,17 +40,14 @@ See: teasing video!
 \begin{tabular}{|l|l|}
 \hline
 \multicolumn{1}{|c|}{\textbf{Predictron}} & \multicolumn{1}{c|}{\textbf{Deep DPG}} \\ \hline
-yet another fn approx          & yet another actor-critic approach \\ \hline
+yet another fn approx, nn arch          & yet another actor-critic approach \\ \hline
 deep model          & deep policy and deep value                \\ \hline
 for model-based, model is abstract & for model-free                \\ \hline
 integrate planning and learning & integrate policy- and value-based \\ \hline
 tested on MRPs                  & tested on MDPs                \\ \hline
 \end{tabular}
 \end{table}
-
 \end{frame}
-
-% https://www.youtube.com/watch?v=8QnD8ZM0YCo
 
 % Common misconception about Deep Learnig:
 % \begin{itemize}
@@ -57,5 +59,5 @@ tested on MRPs                  & tested on MDPs                \\ \hline
 %   the more param you have, you should be less worry
 %   \item we do not really know what is going on and no theoretical proof
 %   Ng: DL is essentially NN with solid math, and yes, math in DL is more sophisticated,
-%   speaking of empirical evidence, it is acceptable for
+%   speaking of empirical evidence, it is acceptable for it to use it as a proof
 % \end{itemize}
