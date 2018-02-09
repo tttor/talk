@@ -3,24 +3,47 @@
 
 \begin{frame}
 \frametitle{Introduction}
+On:\\
+Continuous control with deep reinforcement learning~\cite{Lillicrap2015}
+\vspace{3mm}
+
 Problems:
 \begin{itemize}
   \item continuous action space
   \item raw pixels for observations
 \end{itemize}
-\vspace{5mm}
+\vspace{3mm}
 
-DDPG (=DPG+DQN)~\cite{Lillicrap2015} components:
+Deep DPG (=DPG+DQN) components:
 \begin{itemize}
   \item Deterministic Policy-Gradient (DPG) \cite{Silver2014}
   \item Deep Q-Network (DQN) \cite{Mnih2013}
   \item Actor-Critic Methods \cite{Sutton1998}
 \end{itemize}
-
 \vspace{5mm}
+
 See: teasing video!
 \end{frame}
 
+\begin{frame}
+\frametitle{Introduction: vs Predictron \cite{Silver2016}}
+
+\begin{table}[]
+\centering
+\caption{Predictron vs Deep DPG}
+\label{my-label}
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Predictron}} & \multicolumn{1}{c|}{\textbf{Deep DPG}} \\ \hline
+yet another fn approx          & yet another actor-critic approach \\ \hline
+deep model          & deep policy and deep value                \\ \hline
+for model-based, model is abstract & for model-free                \\ \hline
+integrate planning and learning & integrate policy- and value-based \\ \hline
+tested on MRPs                  & tested on MDPs                \\ \hline
+\end{tabular}
+\end{table}
+
+\end{frame}
 
 % https://www.youtube.com/watch?v=8QnD8ZM0YCo
 

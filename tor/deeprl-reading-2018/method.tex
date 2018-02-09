@@ -2,7 +2,18 @@
 \frame{\tableofcontents[currentsection, hideothersubsections]}
 
 \begin{frame}
-\frametitle{Method: DPG \cite{Silver2014}}
+\frametitle{Methods}
+DDPG (=DPG+DQN)~\cite{Lillicrap2015} components:
+\begin{itemize}
+  \item Deterministic Policy-Gradient (DPG) \cite{Silver2014}
+  \item Deep Q-Network (DQN= QLearning + deepLearning) \cite{Mnih2013}
+  \item Actor-Critic Methods \cite{Sutton1998}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Methods: DPG \cite{Silver2014}}
 
 DPG: Deterministic Policy Gradient, an actor-critic approach:
 \begin{itemize}
@@ -99,7 +110,7 @@ Exploration-exploitation dillema
 What:\\
 Construct an exploration policy $\mu^x$ by adding noise sampled from
 a noise process $\mathcal{N}$ to our actor policy:
-$\mu^x = \mu(s_t | \theta^{\mu}_t) + \mathcal{N}$.
+$\mu^{xplor} = \mu(s_t | \theta^{\mu}_t) + \mathcal{N}$.
 
 \end{frame}
 
