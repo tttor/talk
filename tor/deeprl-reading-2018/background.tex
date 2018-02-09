@@ -31,7 +31,7 @@ $Q^{\pi}(s_t,a_t) = \mathbb{E}_{r_{i \ge t},s_{i>t} \sim E,a_{i>t} \sim \pi} [R_
 \frametitle{Background: MDP with deterministic policy}
 Bellman equation (the recursive relationship):
 \begin{equation}
-Q^{\pi} (s_t,a_t) = \mathbb{E}_{r_{t},s_{t+1} \sim E} \Big[ r(s_t,a_t) + \gamma \mathbb{E}_{a_{t+1} \sim \pi} [Q^{\phi}(s_{t+1},a_{t+1})] \Big]
+Q^{\pi} (s_t,a_t) = \mathbb{E}_{r_{t},s_{t+1} \sim E} \Big[ r(s_t,a_t) + \gamma \mathbb{E}_{a_{t+1} \sim \pi} [Q^{\pi}(s_{t+1},a_{t+1})] \Big]
 \end{equation}
 
 If the target policy is deterministic, $\mu: S \mapsto A$, then:
@@ -52,10 +52,10 @@ are generated from a different stochastic behavior policy $\beta$.
 Consider fn approximators parameterized by $\theta^Q$, \\
 which we optimize by minimizing the loss:
 \begin{equation} \label{equ:qloss}
-L(\theta^Q) =\mathbb{E}_{s_t \sim \rho^{\beta}, a \sim \beta, r_t \sim E} \Big[ \Big( Q^{\phi} (s_t,a_t|\theta^Q) - y_t \Big)^2 \Big]
+L(\theta^Q) =\mathbb{E}_{s_t \sim \rho^{\beta}, a \sim \beta, r_t \sim E} \Big[ \Big( Q (s_t,a_t|\theta^Q) - y_t \Big)^2 \Big]
 \end{equation}
 where:\\
-$y_t = r(s_t,a_t) + \gamma Q^{\mu}(s_{t+1},\mu(s_{t+1}) | \theta^Q)$, and \\
+$y_t = r(s_t,a_t) + \gamma Q(s_{t+1},\mu(s_{t+1}) | \theta^Q)$, and \\
 $\rho^{\beta}$: the discounted state visitation distribution for a policy $\beta$.
 \vspace{5mm}
 
