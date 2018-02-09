@@ -1,6 +1,6 @@
 hanna_reading_2018: Deep RL
 
-# 2018 01 19: Hanna
+# 2018 01 19
 * Silver, David, et al. "The predictron: End-to-end learning and planning." arXiv preprint arXiv:1612.08810 (2016).
 * Tamar, Aviv, et al. "Value iteration networks." Advances in Neural Information Processing Systems. 2016.
 
@@ -29,3 +29,8 @@ hanna_reading_2018: Deep RL
 * result
   * on discrete and continuous path-planning domains,
   * on a natural-language based search task.
+
+# 2018 02 09
+* Cont control, Lilicrap
+* VIN with hi-dof, obstacle, longer planning horizon
+* see ...
