@@ -15,6 +15,9 @@ link: https://paper.dropbox.com/doc/UQ-ML-Reading-Group-Schedule-O0e6GrWgdFS7dqZ
   *  The VC dimension of the class of homogenous halfspaces in R^d is d.
 * batch perceptron alg
 * least square with L2 loss (MSE)
+* linear refression for polynomial regression tasks
+* cross entropy, CE:
+  * In information theory, the cross entropy between two probability distributions {\displaystyle p} p and {\displaystyle q} q over the same underlying set of events measures the average number of bits needed to identify an event drawn from the set, if a coding scheme is used that is optimized for an "unnatural" probability distribution {\displaystyle q} q, rather than the "true" distribution {\displaystyle p} p.
 
 ## Feb 16, 2018: Fred Roosta
 * understanding ML book:
