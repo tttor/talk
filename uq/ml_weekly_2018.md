@@ -1,5 +1,14 @@
 # ml_weekly_2018.md
-link: https://paper.dropbox.com/doc/UQ-ML-Reading-Group-Schedule-O0e6GrWgdFS7dqZ49wFFZ
+https://paper.dropbox.com/doc/UQ-ML-Reading-Group-Schedule-O0e6GrWgdFS7dqZ49wFFZ
+
+## Mar 2, 2018: Boosting (not attended)
+* Adaboost algorithm can also be viewed as a “special” form of projected gradient descent, 
+  called mirror descent with projection done on the space of probability simplex. 
+  This algorithm is also known by another name, i.e., multiplicative weight update.
+* See Section 4.3 of https://arxiv.org/pdf/1405.4980.pdf , 
+  * the “Simplex setup” where the gradient is done on the negative entropy mirror map followed by simple normalization. 
+  * This is identical to Adaboost algorithm in the book on page 135, i.e., 
+  x in https://arxiv.org/pdf/1405.4980.pdf is D in the book.
 
 ## Feb 23, 2018: Linear Predictors
 * $sign(w^t x + b)$
