@@ -1,6 +1,27 @@
 # ml_weekly_2018.md
 https://paper.dropbox.com/doc/UQ-ML-Reading-Group-Schedule-O0e6GrWgdFS7dqZ49wFFZ
 
+## Mar 9, 2018: Model selection
+* Structural Risk Minimization (SRM) paradigm
+  * While the SRM approach can be useful in some situations, in many practical
+    cases the upper bound given in Equation (11.2) is pessimistic.
+* Validation:
+  * hold out set:
+    * Sampling a training set and then sampling an independent validation set is
+      equivalent to randomly partitioning our random set of examples into two parts,
+      using one part for training and the other one for validation.
+  * Validation for Model Selection
+    * train different algorithms (or the same algorithm with different parameters) on the given training set. 
+    * to choose a single predictor from H we sample a fresh validation set and 
+      choose the predictor that minimizes the error over the validation set. 
+      In other words, we apply ERMH over the validation set.
+  * Model-Selection Curve
+    * shows the training error and validation error as a function of the complexity of the model considered. 
+  * k-Fold Cross Validation
+    * special case k = m, where m is the number of examples, is called leave-one-out (LOO).
+    * k-Fold cross validation is often used for model selection (or parameter tuning),
+      and once the best parameter is chosen, the algorithm is retrained using this parameter on the entire training set. 
+
 ## Mar 2, 2018: Boosting (not attended)
 * Adaboost algorithm can also be viewed as a “special” form of projected gradient descent, 
   called mirror descent with projection done on the space of probability simplex. 
