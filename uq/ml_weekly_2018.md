@@ -86,10 +86,9 @@ https://paper.dropbox.com/doc/UQ-ML-Reading-Group-Schedule-O0e6GrWgdFS7dqZ49wFFZ
 * cross entropy, CE:
   * In information theory, the cross entropy between two probability distributions {\displaystyle p} p and {\displaystyle q} q over the same underlying set of events measures the average number of bits needed to identify an event drawn from the set, if a coding scheme is used that is optimized for an "unnatural" probability distribution {\displaystyle q} q, rather than the "true" distribution {\displaystyle p} p.
 
-## Feb 16, 2018: Fred Roosta
+## Feb 16, 2018: Review ch 1 to 6
 * understanding ML book:
 http://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf
-* ch 1 to 6 (review)
 * diff with classical stat:
 learner if blind to D (data distribution) and f (true mapping)
 * error, generalization error, risk
