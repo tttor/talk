@@ -1,0 +1,32 @@
+\section{Gradient Descent}
+\frame{\tableofcontents[currentsection, hideothersubsections]}
+
+\begin{frame}
+\frametitle{Gradient Descent}
+
+Recall:\\
+\begin{itemize}
+\item hypotheses as vectors $\mathbf{w}$ that come from a convex hypothesis class, $\mathcal{H}$
+\item here, try to minimize the risk function $L_D(w)$; \\
+      not the empirical risk $L_S (h)$
+\end{itemize}
+
+WHAT:\\
+Stochastic Gradient Descent (SGD);
+
+WHY:\\
+do not know $D$ so do not know the gradient of $L_D(w)$.
+
+HOW:\\
+take a step along a random direction, as long as
+the expected value of the direction is the negative of the gradient
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Gradient Descent}
+Gradient descent: an iterative optimization procedure in which
+at each step we improve the solution by taking a step along the negative of
+the gradient of the function to be minimized at the current point
+
+\end{frame}
