@@ -11,8 +11,7 @@ Recall, we have:
 \begin{itemize}
     \item a set of examples $\mathcal{Z} = \mathcal{X} \times \mathcal{Y}$
     \item a hypothesis class $\mathcal{H}$, which can be an arbitrary set,\\
-    for now consider: $ \mathcal{H} \subset \mathbb{R}^d$, i.e.
-    every hypothesis is some real-valued vector;
+    for now consider: $ \mathcal{H} \subseteq \mathbb{R}^d$,
     thus, denote a hypothesis in $\mathcal{H}$ by $\mathbf{w}$
     \item a loss function $\ell: \mathcal{H} \times \mathcal{Z} \mapsto \mathbb{R_{+}}$
 \end{itemize}
@@ -36,7 +35,7 @@ Linear Regression with the Squared Loss
         hence $\mathcal{H} = \mathbb{R}^d$
     \item set of examples:
     $\mathcal{Z} = \mathcal{X} \times \mathcal{Y} = \mathbb{R}^d \times \mathbb{R} = \mathbb{R}^{d+1}$
-    \item loss function: $\ell(\mathbf{w}, (\mathbf{x}, y)) = (-y)^2$
+    \item loss function: $\ell(\mathbf{w}, (\mathbf{x}, y)) = (\langle \mathbf{w},\mathbf{x}  \rangle - y)^2$
     \item Clearly: $\mathcal{H}$ is a convex set and  $\ell$ is convex fn wrt $\mathbf{w}$
 \end{itemize}
 
