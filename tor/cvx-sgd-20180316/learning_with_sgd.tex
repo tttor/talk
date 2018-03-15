@@ -6,14 +6,15 @@
 
 Recall, in learning:\\
 \begin{itemize}
-\item want to minimize the risk function, $L_D(\mathbf{w}) = \mathbb{E}_{z \approx D} [\ell(\mathbf{w}, z)]$
-\item do not know $D$, so cannot simply calculate $L_D (w(t))$
+\item want to minimize the risk function, $L_D(\mathbf{w}) = \mathbb{E}_{z \sim D} [\ell(\mathbf{w}, z)]$
+\item do not know $D$, so cannot simply calculate $\nabla L_D (\mathbf{w}^{(t)} )$
+\item as an estimate to minimizing $L_D(w)$: minimize $L_S(w)$~\footnote{empirical risk}
 \end{itemize}
 \vspace{5mm}
 
-With SGD:\\
-find an unbiased estimate of the gradient of $L_D(\mathbf{w})$, that is,\\
-a random vector whose conditional expected value is $L_D (\mathbf{w}^{(t)} )$
+SGD minimizes $L_D(w)$ directly:\\
+find an \textbf{unbiased estimate} of the gradient of $L_D(\mathbf{w})$, that is,\\
+a random vector whose conditional expected value is $\nabla L_D (\mathbf{w}^{(t)} )$
 
 \end{frame}
 
@@ -21,10 +22,10 @@ a random vector whose conditional expected value is $L_D (\mathbf{w}^{(t)} )$
 \begin{frame}
 \frametitle{Learning with SGD: Risk Minimization}
 
-Construction of the random vector $v_t$ for  a differentiable risk fn $L_D$:
+Construction of the random vector $\mathbf{v}_t$ for  a differentiable risk fn $L_D$:
 \begin{itemize}
-\item sample $z \approx D$
-\item define $v_t$ to be the gradient of the function $\ell(\mathbf{w}, z)$ wrt $\mathbf{w}$, at $\mathbf{w}^{(t)}$
+\item sample $z \sim D$
+\item define $\mathbf{v}_t$ to be the gradient of $\ell(\mathbf{w}, z)$ wrt $\mathbf{w}$, at $\mathbf{w}^{(t)}$
 \item by the linearity of the gradient we have:
     \begin{figure}
         \centering
@@ -36,7 +37,7 @@ Construction of the random vector $v_t$ for  a differentiable risk fn $L_D$:
 Thus, the gradient of the loss function $\ell(w, z)$ at $\mathbf{w}^{(t)}$ is
 \begin{itemize}
 \item unbiased estimate of the gradient of the risk function $L_D( w^{(t)} )$ and
-\item easily constructed by sampling a single fresh example $z \approx D$ at each iteration $t$.
+\item constructed by sampling a single fresh example $z \sim D$ at each iteration $t$.
 \end{itemize}
 
 \end{frame}
