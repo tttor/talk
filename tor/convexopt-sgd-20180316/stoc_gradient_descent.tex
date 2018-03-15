@@ -1,42 +1,51 @@
-\section{Stochastic Gradient Descent}
+\section{Stochastic Gradient Descent (SGD)}
 \frame{\tableofcontents[currentsection, hideothersubsections]}
 
 \begin{frame}
-\frametitle{Stochastic Gradient Descent}
+\frametitle{SGD: Intro}
 
 WHAT:\\
 Stochastic Gradient Descent (SGD);
+\vspace{5mm}
 
 WHY:\\
-do not know $D$ so do not know the gradient of $L_D(w)$.
+do not know $D$, so do not know the gradient of $L_D(w)$.
+\vspace{5mm}
 
 HOW:\\
-take a step along a random direction, as long as
-the expected value of the direction is the negative of the gradient
-
+take a step along a random direction (vector), as long as
+its expected value at each iteration will equal the gradient direction
+(more generally, a subgradient of the function at the current vector)
 \end{frame}
 
 \begin{frame}
-\frametitle{SGD}
+\frametitle{SGD: Intro}
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.20]{fig_14_3}
+    \includegraphics[scale=0.3]{fig_14_3}
 \end{figure}
 
-Stochastic GD:\\
-the update direction to be a random vector and
-only require that its expected value at each iteration will equal the gradient direction
-(more generally, a subgradient of the function at the current vector)
-
 \end{frame}
 
 \begin{frame}
-\frametitle{SGD}
+\frametitle{SGD: Intro}
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.20]{sgd}
+    \includegraphics[scale=0.325]{sgd}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{SGD: Analysis for Convex-Lipschitz-Bounded Fn}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{theorem_14_8}
 \end{figure}
 
 \end{frame}
