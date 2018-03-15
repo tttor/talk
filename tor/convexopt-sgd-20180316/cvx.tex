@@ -34,7 +34,7 @@
 \begin{frame}
 \frametitle{Convexity: Convex functions}
 
-Properties:
+Properties of convex fn:
 \begin{itemize}
     \item  every local minimum is also a global minimum
     \item  for every $\mathbf{w}$ we can construct a tangent to $f$
@@ -55,14 +55,21 @@ Properties:
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.45]{claim_12_4}
+    \includegraphics[scale=0.35]{lemma_12_3}
 \end{figure}
 
 \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.45]{claim_12_5}
+    \includegraphics[scale=0.375]{claim_12_4}
+\end{figure}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.375]{claim_12_5}
 \end{figure}
 
 \end{frame}
@@ -75,11 +82,12 @@ Properties:
     \includegraphics[scale=0.45]{def_12_6}
 \end{figure}
 
+Properties:
 \begin{itemize}
-    \item a Lipschitz function cannot change too fast
+    \item a Lipschitz function can \textbf{not} change too fast
     \item if the derivative of $f$ is everywhere bounded (in absolute value) by $\rho$,
         then the function is $\rho$-Lipschitz.
-    \item composition of Lipschitz functions preserves Lipschitzness.
+    \item \textbf{composition} of Lipschitz functions \textbf{preserves} Lipschitzness.
 \end{itemize}
 
 \end{frame}
@@ -92,11 +100,16 @@ Properties:
     \includegraphics[scale=0.45]{def_12_8}
 \end{figure}
 
+Properties:
 \begin{itemize}
-    \item when a function is both convex and smooth,\\
-        we have both upper and lower bounds on the difference between
+    \item when a function is \textbf{both} convex and smooth,\\
+        we have both \textbf{upper and lower bounds} on the difference between
         the function and its first order approximation.
-    \item a composition of a smooth scalar function over a linear function preserves smoothness.
+    \item a \text{composition} of a smooth scalar function over a linear function \textbf{preserves} smoothness.
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.225]{claim_12_9}
+    \end{figure}
 \end{itemize}
 
 \end{frame}
