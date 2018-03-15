@@ -6,17 +6,17 @@
 
 Recall:\\
 \begin{itemize}
-\item hypotheses as vectors $\mathbf{w}$ that \\
-     come from a convex hypothesis class, $\mathcal{H}$
-\item the goal of learning is to minimize the risk function $L_D(\mathbf{w})$;\\
-      \textbf{not} the empirical risk $L_S (h)$
+    \item hypotheses as vectors $\mathbf{w}$ that \\
+         come from a convex hypothesis class, $\mathcal{H}$
+    \item goal of learning:\\
+          to minimize the risk function $L_D(\mathbf{w})$;\\
+          \textbf{not} the empirical risk $L_S (h)$
+    \item gradient def:
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.30]{grad_def_p185}
+        \end{figure}
 \end{itemize}
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.30]{grad_def_p185}
-\end{figure}
-
 
 \end{frame}
 
@@ -51,12 +51,12 @@ LET:
 \item $\mathbf{w^*}$ be any vector and
 \item $B$ be an upper bound on $\parallel \mathbf{w^*} \parallel$
 \end{itemize}
-\vspace{3mm}
+\vspace{5mm}
 
 GOAL:\\
 to obtain an upper bound on  $f(\bar{\mathbf{w}}) - f(\mathbf{w^*})$,
 where $\bar{\mathbf{w}} = \frac{1}{T} \sum_{1}^{T} \mathbf{w}^{(t)}$
-\vspace{3mm}
+\vspace{5mm}
 
 RESULT:\\
 From the definition of $\bar{\mathbf{w}}$, and using Jensen's inequality, we obtain:
