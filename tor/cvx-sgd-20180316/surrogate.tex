@@ -5,31 +5,38 @@
 \frametitle{Surrogate Loss Fn: Intro}
 
 WHAT:\\
-handle some nonconvex problems
-by minimizing “surrogate” loss functions that are convex
-\vspace{2mm}
+handle some \textbf{non}convex problems
+by minimizing ``surrogate'' loss functions that are \text{convex}
+\vspace{4mm}
 
 WHY:\\
-the natural loss function is not convex
-\vspace{2mm}
+the natural loss function is not convex, e.g.  $0-1$ loss
+\vspace{4mm}
 
 HOW:\\
-to upper bound the nonconvex loss function by a convex surrogate loss function.
-the requirements from a convex surrogate loss are as follows:
+to upper bound the nonconvex loss function by a convex surrogate loss function
+that
 \begin{itemize}
-    \item It should be convex.
-    \item It should upper bound the original loss.
+    \item are convex
+    \item upper bounds the original loss.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Surrogate Loss Fn: Example}
-example:
-learning the hypothesis class of half-
-spaces with respect to the 0 − 1 loss.
+In the context of learning halfspaces:\\
+Hinge loss as a convex surrogate for the $0-1$ loss
+\footnote{{\tiny https://scicomp.stackexchange.com/questions/5628/confusion-related-to-convexity-of-0-1-loss-function}}
 
-For example, in the context of learning halfspaces, we can define the so-called
-hinge loss as a convex surrogate for the 0 − 1 loss, as follows:
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.25]{eq_hinge_loss}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.25]{fig_surr_fn}
+\end{figure}
 
 \end{frame}
 
