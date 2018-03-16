@@ -1,6 +1,14 @@
 # ml_weekly_2018.md
 https://paper.dropbox.com/doc/UQ-ML-Reading-Group-Schedule-O0e6GrWgdFS7dqZ49wFFZ
 
+## Mar 16, 2018: Convex fn and Stochatic Grad Descent
+* In SGD, in practice, we want it to output the last w, not the averaged
+  * in page 185: 
+  > but taking the average
+    turns out to be rather useful, especially when we generalize gradient descent to 
+    nondifferentiable functions and to the stochastic case.
+* See https://github.com/tttor/talk/tree/master/tor/cvx-sgd-20180316
+
 ## Mar 9, 2018: Model selection
 * Structural Risk Minimization (SRM) paradigm
   * While the SRM approach can be useful in some situations, in many practical
