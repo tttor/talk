@@ -33,4 +33,4 @@ hanna_reading_2018: Deep RL
 # 2018 02 09
 * Cont control, Lilicrap
 * VIN with hi-dof, obstacle, longer planning horizon
-* see https://github.com/tttor/talk/tree/master/tor/deeprl-reading-20180209
+* see https://github.com/tttor/talk/tree/master/tor/deep-dpg-20180209
