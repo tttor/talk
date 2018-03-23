@@ -1,6 +1,13 @@
 # ml_weekly_2018.md
 https://paper.dropbox.com/doc/UQ-ML-Reading-Group-Schedule-O0e6GrWgdFS7dqZ49wFFZ
 
+## Mar 23, 2018: Regularation and Stability
+* stable if a slight change of its input does not change its output much
+* using the squared $\ell-2$ norm as a regularization function stabilizes all convex-Lipschitz or 
+  convex-smooth learning problems.
+* RLM: regularized loss minimization
+* balance between loss empiracal risk and simpler hypothesis
+
 ## Mar 16, 2018: Convex fn and Stochatic Grad Descent
 * In SGD, in practice, we want it to output the last w, not the averaged
   * in page 185: 
