@@ -2,11 +2,21 @@
 https://paper.dropbox.com/doc/UQ-ML-Reading-Group-Schedule-O0e6GrWgdFS7dqZ49wFFZ
 
 ## Mar 23, 2018: Regularation and Stability
-* stable if a slight change of its input does not change its output much
+* stable 
+  * if a slight change of its input does not change its output much
+  * do not overfit
 * using the squared $\ell-2$ norm as a regularization function stabilizes all convex-Lipschitz or 
   convex-smooth learning problems.
 * RLM: regularized loss minimization
 * balance between loss empiracal risk and simpler hypothesis
+* ridge regression, RLM rule with 
+  * Tikhonov regularization
+  * linear regression with squared loss
+* sparse PCA: https://stats.stackexchange.com/questions/79168/how-exactly-is-sparse-pca-better-than-pca
+* a learning algorithm does not overfit if and only if it is on-average-replace-one-stable. 
+*  the algorithm should both fit the training set and at the same time be stable. 
+  * the parameter λ of the RLM rule balances between fitting the training set and being stable.
+* tikhonov regularization as a stabilizer
 
 ## Mar 16, 2018: Convex fn and Stochatic Grad Descent
 * In SGD, in practice, we want it to output the last w, not the averaged
