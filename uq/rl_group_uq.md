@@ -1,6 +1,15 @@
-# rl_brotherhood_uq
+# rl_group_uq
 
-## Mar 6, 2018: Jordan Bishop
+## Apr 3, 2018
+* https://arxiv.org/pdf/1709.06560.pdf
+* enumerate hyper params
+* enumerate evaluation methods
+* show behaviour, in addition to Return plots
+* increase number of runs
+* use bootstrap method and t-test for reporting evaluation metric values
+* see also [this note](https://github.com/tttor/rl-foundation/blob/master/survey/henderson_2017.md)
+
+## Mar 6, 2018
 Schema Networks: Zero-shot Transfer with a Generative Causal Model of Intuitive Physics;
 ICML 2017: https://arxiv.org/abs/1706.04317
 
