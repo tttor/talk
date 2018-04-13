@@ -1,4 +1,4 @@
-hanna_reading_2018: Deep RL
+# rdl reading: Deep RL
 
 # 2018 01 19
 * Silver, David, et al. "The predictron: End-to-end learning and planning." arXiv preprint arXiv:1612.08810 (2016).
