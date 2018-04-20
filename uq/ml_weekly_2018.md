@@ -1,6 +1,29 @@
 # ml_weekly_2018.md
 https://paper.dropbox.com/doc/UQ-ML-Reading-Group-Schedule-O0e6GrWgdFS7dqZ49wFFZ
 
+## Apr 11, 2018: SVM
+* https://www.cs.huji.ac.il/~shais/Lectures2014/lecture8.pdf
+* for learning linear predictors in high dimensional feature spaces. 
+* SVM tackles the sample complexity challenge (cf kernel tackles comutational complexity)
+  by searching for “large margin” separators. 
+  * Roughly speaking, a halfspace separates a training set with a large margin if 
+    all the examples are not only on the correct side of the separating hyperplane but also far away from it. 
+* hard, soft svm
+* Hard-SVM is the learning rule in which we return an ERM hyperplane that
+  separates the training set with the **largest possible margin**. 
+  * assumes that the training set is linearly separable
+  * linearly separable if there exists a halfspace, ...
+* homogenous halfspaces,
+  * b is set to be zero
+  *  halfspaces that pass through the origin
+* soft svm
+  * introducing nonnegative slack variables
+    *  measures by how much the constraint is violated
+  * https://stats.stackexchange.com/questions/180701/support-vector-machine-soft-margin  
+* support vectors, see Fritz John optimality conditions.
+  *  examples that are exactly at distance `1/||w_0||` from the separating hyperplane
+* SGD for Solving Soft-SVM
+
 ## Mar 23, 2018: Regularation and Stability
 * stable 
   * if a slight change of its input does not change its output much
