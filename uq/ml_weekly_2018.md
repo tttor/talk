@@ -1,6 +1,16 @@
 # ml_weekly_2018.md
 https://paper.dropbox.com/doc/UQ-ML-Reading-Group-Schedule-O0e6GrWgdFS7dqZ49wFFZ
 
+## Apr 27, 2018: kernel methods
+* embedding into feature spaces
+* kernel trick: 
+  * `k(x, x') = < \psi(x), \psi(x) >`, where
+    * `\psi` maps the feature space to reproducing kernel hilbert space
+  * eg. gaussian kernel (aka Radial basis fn)
+* wrong, p185: ~~Hence, we can learn any polynomial predictor over the original space by using a Gaussian kernel.~~
+* kernels as a way to express prior knowledge
+* SGD for solving softsvm with kernel
+
 ## Apr 11, 2018: SVM
 * https://www.cs.huji.ac.il/~shais/Lectures2014/lecture8.pdf
 * for learning linear predictors in high dimensional feature spaces. 
